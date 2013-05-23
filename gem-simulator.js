@@ -38,7 +38,7 @@ var sendRequest = function(meter) {
 		'SC': meter.sc,
 		'V': '110'
 	};
-	_.each(meter.energyChannels, function (c, i) { query[channelName('C', i)] = c; });
+	_.each(meter.energyChannels, function (c, i) { query[channelName('c', i)] = c; });
 	query['PL'] = meter.pulseChannels.join();
 
 	// console.log(query);
