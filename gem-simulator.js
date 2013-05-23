@@ -19,6 +19,8 @@ var pulseChannelsIncrement = 1;
 
 var _ = require('underscore');
 var request = require('request');
+var express = require("express");
+
 
 console.log('GEM Simulator started');
 console.log('Meters: ');
@@ -58,3 +60,17 @@ _.each(meters, function(meter) {
 });
 
 setInterval(sendRequests, sendingPeriodInSec * 1000);
+
+// Web server
+
+var app = express();
+app.use(express.logger());
+
+app.get('/', function(request, response) {
+  response.send("Meters: " + meters);
+});
+
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
