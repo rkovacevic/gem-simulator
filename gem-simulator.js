@@ -24,10 +24,6 @@ console.log('GEM Simulator started');
 console.log('Meters: ');
 console.log(meters);
 
-var channelName = function(prefix, index) {
-	return prefix + ((index < 9) ? '0' : '') + (index + 1);
-}
-
 var sendRequest = function(meter) {
 	meter.sc += secondCounterIncrement;
 	meter.energyChannels = _.map(meter.energyChannels, function(c, i) { return c + (energyChannelsIncrement * (i+1)) });
@@ -38,7 +34,7 @@ var sendRequest = function(meter) {
 		'SC': meter.sc,
 		'V': '110'
 	};
-	_.each(meter.energyChannels, function (c, i) { query[channelName('c', i)] = c; });
+	_.each(meter.energyChannels, function (c, i) { query['c' + i] = c; });
 	query['PL'] = meter.pulseChannels.join();
 
 	// console.log(query);
