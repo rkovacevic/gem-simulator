@@ -11,7 +11,7 @@ var meters = [
 	}
 ];
 
-var sendingPeriodInSec = 2;
+var sendingPeriodInSec = 10;
 var secondCounterIncrement = 10;
 var energyChannelsIncrement = 10;
 var pulseChannelsIncrement = 1;
@@ -32,7 +32,8 @@ var sendRequest = function(meter) {
 	var query = {
 		'SN': meter.serialNumber,
 		'SC': meter.sc,
-		'V': '110'
+		'V': '110',
+		'T': '0'
 	};
 	_.each(meter.energyChannels, function (c, i) { query['c' + i] = c; });
 	query['PL'] = meter.pulseChannels.join();
