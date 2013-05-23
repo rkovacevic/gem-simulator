@@ -6,12 +6,8 @@
 //
 var meters = [
 	{
-		host: 'xdev.aquicore.com',
-		serialNumber: '99000001'
-	},
-	{
-		host: 'xmy.aquicore.com',
-		serialNumber: '99000002'
+		host: 'dev.aquicore.com',
+		serialNumber: '01234567'
 	}
 ];
 
