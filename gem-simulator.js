@@ -7,7 +7,7 @@
 var meters = [
 	{
 		host: 'dev.aquicore.com',
-		serialNumber: '77770050'
+		serialNumber: '09809811'
 	}
 ];
 
